@@ -6,3 +6,8 @@ dist
 .DS_Store
 .vercel
 studio-config/node_modules
+
+# Sanity Studio
+studio-config/node_modules
+studio-config/dist
+studio-config/.sanity

@@ -1,16 +1,14 @@
 import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
+import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './sanity/schemas'
 
-const projectId = import.meta.env.VITE_SANITY_PROJECT_ID
-const dataset = import.meta.env.VITE_SANITY_DATASET || 'production'
-
 export default defineConfig({
-  basePath: '/studio',
-  projectId,
-  dataset,
-  plugins: [deskTool(), visionTool()],
+  name: 'default',
+  title: 'Antonio Carcagnì — Portfolio CMS',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
+  plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
   },

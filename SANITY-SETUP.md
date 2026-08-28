@@ -1,151 +1,103 @@
-# 🎨 Sanity CMS Setup
+# 🎨 Sanity Studio — Setup (deploy standalone)
 
-Guida rapida per configurare il CMS Sanity con il portfolio.
+Guida per creare e deployare il CMS. La Studio è **separata** dal sito
+(`studio-config/`), deployata su un suo URL dedicato — non fa parte
+del build del sito su Vercel.
 
----
-
-## 🚀 STEP 1: Crea Sanity Project
-
-1. Vai su https://sanity.io
-2. Clicca **"Get started"** o **"Create project"**
-3. Compila:
-   - **Project name**: `antonio-portfolio`
-   - **Dataset name**: `production`
-   - **Privacy**: `Public` (API access)
-4. Clicca **"Create"**
-
-Aspetta ~30 secondi per l'attivazione.
+Serve un terminale con **Node.js 20+**. Opzioni:
+- **GitHub Codespaces** (consigliato, zero installazione): sul repo →
+  `Code` → `Codespaces` → `Create codespace on main`
+- Un terminale locale, se disponibile
 
 ---
 
-## 🔑 STEP 2: Recupera Project ID
+## STEP 1 — Crea il progetto Sanity
 
-Nella Sanity dashboard:
+Nel terminale (Codespace o locale):
 
-1. Vai su **Settings** (in alto)
-2. Clicca **API**
-3. Copia il **Project ID** (lungo alfanumerico)
+```bash
+cd studio-config
+npm install
+npx sanity login
+```
 
-Salva questo ID → servirà per `.env.local`
+Si apre il browser: login con **"Continue with Google"** (nessuna
+configurazione OAuth custom necessaria — è nativo di Sanity).
 
----
+```bash
+npx sanity init --dataset production
+```
 
-## ✅ STEP 3: Configura Google OAuth (Accesso Gmail)
+Segui il prompt:
+- "Create new project" → nome: `antonio-portfolio`
+- Dataset: `production`
+- Visibility: **Public**
+- Quando chiede se usare la config esistente → **sì / rileva
+  `sanity.config.ts` esistente** (non sovrascrivere gli schemi)
 
-Nel progetto Sanity:
-
-1. Vai su **Settings** → **Authentication**
-2. Clicca **"Add Authentication Provider"**
-3. Seleziona **"Google"**
-4. Compila:
-   - **Client ID**: (vedi STEP 4 sotto)
-   - **Client Secret**: (vedi STEP 4 sotto)
-
-Per ora SALVA senza ID/Secret (li ricaverrai dopo).
-
----
-
-## 🔐 STEP 4: Crea Google OAuth Credentials
-
-1. Vai su https://console.cloud.google.com
-2. Crea nuovo progetto: `antonio-portfolio`
-3. Abilita **Google+ API**
-4. Crea **OAuth Consent Screen** (External)
-5. Crea **OAuth Client ID** (Web application)
-
-Autorizzato redirect URIs:
-- `https://<sanity-project>.sanity.studio/auth/google/callback`
-- Sostituisci `<sanity-project>` con il tuo project ID
-
-6. Copia **Client ID** e **Client Secret**
-7. Incolla su Sanity → Settings → Authentication → Google
+Al termine annota il **Project ID** stampato in console.
 
 ---
 
-## 📝 STEP 5: Crea `.env.local`
+## STEP 2 — Variabili d'ambiente
 
-Nella root del progetto:
+Crea `studio-config/.env` (mai commitarlo, già in `.gitignore`):
 
 ```
-VITE_SANITY_PROJECT_ID=your_project_id_qui
+SANITY_STUDIO_PROJECT_ID=<il tuo project id>
+SANITY_STUDIO_DATASET=production
+```
+
+---
+
+## STEP 3 — Deploy della Studio
+
+```bash
+npx sanity deploy
+```
+
+Chiede un hostname (es. `antonio-portfolio` → risultato:
+`https://antonio-portfolio.sanity.studio`). Da qui in poi la Studio
+è live e accessibile con login Google.
+
+---
+
+## STEP 4 — Collega il sito ai contenuti
+
+Su **Vercel** → Project Settings → Environment Variables, aggiungi
+(o verifica) — queste alimentano il sito pubblico, non la Studio:
+
+```
+VITE_SANITY_PROJECT_ID=<lo stesso project id di sopra>
 VITE_SANITY_DATASET=production
 ```
 
-Sostituisci `your_project_id_qui` con il tuo Project ID da STEP 2.
+Redeploy dopo averle impostate.
 
 ---
 
-## 🎯 STEP 6: Accedi a Sanity Studio
+## Content types disponibili in Studio
 
-Sanity Studio (il CMS) è automaticamente disponibile su:
+- **Projects** — progetti del portfolio
+- **Hobbies** — interessi personali
+- **About** — testo sezione About
+- **Skills** — competenze per categoria
+- **Certifications** — certificazioni
+- **Leads** — contatti ricevuti dal form (sola lettura consigliata)
 
-```
-https://<project-id>.sanity.studio
-```
-
-Oppure in locale dopo `npm run dev`:
-```
-http://localhost:3000/studio
-```
-
-Login con il tuo **Gmail account** (usando Google OAuth) ✅
+Sanity salva automaticamente, nessun bottone "Save" da premere.
 
 ---
 
-## 📊 STEP 7: Aggiungi Contenuto
+## Troubleshooting
 
-Nel Sanity Studio, avrai questi document types:
+**Il sito non mostra contenuti** → verifica che
+`VITE_SANITY_PROJECT_ID` su Vercel combaci col Project ID della
+Studio, e che i documenti siano effettivamente pubblicati (non solo
+in bozza).
 
-- **Projects** - Aggiungi i tuoi progetti
-- **Hobbies** - I tuoi interessi
-- **About** - Sezione About
-- **Skills** - Competenze per categoria
-- **Certifications** - Le tue certificazioni
-- **Leads** - I contatti ricevuti (read-only)
+**`npx sanity deploy` fallisce** → assicurati di essere nella cartella
+`studio-config/` e di aver fatto `npx sanity login` prima.
 
-Tutti i campi sono **completamente editabili**.
-
----
-
-## 🚀 Deploy su Vercel
-
-Quando deployi su Vercel:
-
-Aggiungi le env vars:
-```
-VITE_SANITY_PROJECT_ID=your_project_id
-VITE_SANITY_DATASET=production
-```
-
-Il tuo CMS sarà disponibile su:
-```
-https://sito.vercel.app/studio
-```
-
----
-
-## 📖 Accesso CMS in Produzione
-
-Una volta deployato:
-
-1. Vai a `https://tuo-dominio.com/studio` (o `/admin/studio`)
-2. Clicca **"Sign in with Google"**
-3. Accedi con il tuo account Gmail
-4. Modifica TUTTO da Sanity Studio
-
-**Niente backend custom, niente complicazioni!** ✨
-
----
-
-## 💡 Tips
-
-- Sanity salva automaticamente (non serve button "Save")
-- Preview in tempo reale se hai fretta
-- Puoi invitare collaboratori (Settings → Team)
-- API GraphQL disponibile per query avanzate
-
----
-
-## 🎉 Fatto!
-
-Sanity CMS è pronto. Vai a deploy su Vercel! 🚀
+**Hostname studio già in uso** → sceglierne un altro, es.
+`antonio-carcagni-portfolio`.
