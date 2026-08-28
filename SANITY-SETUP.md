@@ -130,7 +130,7 @@ Una volta deployato:
 
 1. Vai a `https://tuo-dominio.com/studio` (o `/admin/studio`)
 2. Clicca **"Sign in with Google"**
-3. Accedi con `***REMOVED-EMAIL***`
+3. Accedi con il tuo account Gmail
 4. Modifica TUTTO da Sanity Studio
 
 **Niente backend custom, niente complicazioni!** ✨

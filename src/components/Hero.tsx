@@ -52,7 +52,10 @@ export default function Hero() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <button className="px-8 py-4 bg-teal-500 hover:bg-teal-400 text-ocean-900 font-bold rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+          <button
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-8 py-4 bg-teal-500 hover:bg-teal-400 text-ocean-900 font-bold rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+          >
             Explore My Work
             <ArrowRight size={20} />
           </button>
