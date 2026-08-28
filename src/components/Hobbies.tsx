@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { supabase, Hobby } from '../lib/supabase'
+import { client, Hobby } from '../lib/sanity'
 import { Sparkles } from 'lucide-react'
 
 export default function Hobbies() {
@@ -13,37 +13,34 @@ export default function Hobbies() {
 
   const fetchHobbies = async () => {
     try {
-      const { data, error } = await supabase
-        .from('hobbies')
-        .select('*')
-        .order('order_index', { ascending: true })
-
-      if (error) throw error
+      const query = `*[_type == "hobby"] | order(order asc) {
+        _id,
+        title,
+        description,
+        order
+      }`
+      const data = await client.fetch(query)
       setHobbies(data || [])
     } catch (error) {
       console.error('Error fetching hobbies:', error)
-      // Default hobbies if DB fails
       setHobbies([
         {
-          id: '1',
+          _id: '1',
           title: 'Cloud Technologies & AWS',
           description: 'Exploring emerging AWS technologies, staying at the forefront of cloud innovation and infrastructure evolution.',
-          order_index: 1,
-          created_at: new Date().toISOString(),
+          order: 1,
         },
         {
-          id: '2',
+          _id: '2',
           title: 'Game Development & Indie Gaming',
           description: 'Passionate about game design, creative direction, and the indie gaming ecosystem. Co-founder of a successful Steam title.',
-          order_index: 2,
-          created_at: new Date().toISOString(),
+          order: 2,
         },
         {
-          id: '3',
+          _id: '3',
           title: 'Tech Mentoring & Leadership',
           description: 'Mentoring aspiring cloud architects and technology leaders. Committed to developing the next generation of innovators.',
-          order_index: 3,
-          created_at: new Date().toISOString(),
+          order: 3,
         },
       ])
     } finally {
@@ -68,7 +65,7 @@ export default function Hobbies() {
             <div className="space-y-4">
               {hobbies.map((hobby, index) => (
                 <motion.div
-                  key={hobby.id}
+                  key={hobby._id}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}

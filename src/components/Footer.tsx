@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-white font-bold mb-3">Tech Stack</h4>
-            <p className="text-gray-400 text-sm">React • TypeScript • Tailwind • Supabase</p>
+            <p className="text-gray-400 text-sm">React • TypeScript • Tailwind • Sanity</p>
           </div>
         </div>
 
