@@ -34,14 +34,6 @@ export default function Navigation() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="https://antonio-porfolio-studio.sanity.studio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs px-3 py-1 rounded bg-ocean-600 text-teal-300 hover:bg-ocean-500 transition"
-            >
-              CMS
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -70,14 +62,6 @@ export default function Navigation() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="https://antonio-porfolio-studio.sanity.studio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block py-2 text-xs text-teal-300"
-            >
-              CMS
-            </a>
           </motion.div>
         )}
       </div>
