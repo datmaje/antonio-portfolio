@@ -30,7 +30,7 @@ export default {
       name: 'icon',
       title: 'Icon Name (lucide-react)',
       type: 'string',
-      description: 'Receipt, Smartphone, Gauge, Settings, Cloud, Handshake, Users, Database'
+      description: 'Receipt, Smartphone, Gauge, Settings, Cloud, Briefcase, Users, Database'
     },
     {
       name: 'order',

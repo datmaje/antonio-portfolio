@@ -3,7 +3,7 @@
 {"_id": "skill-governance", "_type": "skill", "category": "IT & Business Governance", "icon": "Gauge", "order": 3, "skills": ["Operating model", "Lean portfolio management", "Demand & prioritisation", "Delivery KPIs", "Technical debt"]}
 {"_id": "skill-delivery", "_type": "skill", "category": "Delivery & Ways of Working", "icon": "Settings", "order": 4, "skills": ["Agile & SAFe at scale", "Release management", "Time-to-market", "PMO & reporting", "Distributed teams"]}
 {"_id": "skill-cloud-data", "_type": "skill", "category": "Cloud & Data Platforms", "icon": "Cloud", "order": 5, "skills": ["AWS", "GCP", "Cloud migration", "DevOps & application lifecycle", "Lakehouse & analytics"]}
-{"_id": "skill-vendor", "_type": "skill", "category": "Vendor & Contract Management", "icon": "Handshake", "order": 6, "skills": ["Tenders & RFP", "SLA & penalties", "Contract governance", "BPO management", "Vendor performance"]}
+{"_id": "skill-vendor", "_type": "skill", "category": "Vendor & Contract Management", "icon": "Briefcase", "order": 6, "skills": ["Tenders & RFP", "SLA & penalties", "Contract governance", "BPO management", "Vendor performance"]}
 {"_id": "cert-aws-saa", "_type": "certification", "title": "AWS Certified Solution Architect - Associate (SAA)", "issuer": "Amazon Web Services", "order": 1, "validFrom": "2020"}
 {"_id": "cert-aws-instructor", "_type": "certification", "title": "AWS Authorized Instructor", "issuer": "Amazon Web Services", "order": 2, "validFrom": "2021", "validTo": "2023"}
 {"_id": "cert-psm-i", "_type": "certification", "title": "Professional Scrum Master I (PSM I)", "issuer": "Scrum.org", "order": 3, "validFrom": "2024"}

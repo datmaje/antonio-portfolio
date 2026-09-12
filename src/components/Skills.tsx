@@ -11,7 +11,7 @@ import {
   Receipt,
   Smartphone,
   Gauge,
-  Handshake,
+  Briefcase,
 } from 'lucide-react'
 import { client, Skill } from '../lib/sanity'
 
@@ -25,7 +25,9 @@ const iconMap: Record<string, typeof Cloud> = {
   Receipt,
   Smartphone,
   Gauge,
-  Handshake,
+  Briefcase,
+  // lucide-react 0.292 non ha Handshake: se un documento Sanity lo usa, ricade su Briefcase
+  Handshake: Briefcase,
 }
 
 // Allineato ai documenti "skill" su Sanity. Serve solo se il CMS non risponde.
@@ -68,7 +70,7 @@ const fallbackSkills: Skill[] = [
   {
     _id: '6',
     category: 'Vendor & Contract Management',
-    icon: 'Handshake',
+    icon: 'Briefcase',
     order: 6,
     skills: ['Tenders & RFP', 'SLA & penalties', 'Contract governance', 'BPO management', 'Vendor performance'],
   },
