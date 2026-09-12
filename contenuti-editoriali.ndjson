@@ -4,6 +4,11 @@
 {"_id": "skill-delivery", "_type": "skill", "category": "Delivery & Ways of Working", "icon": "Settings", "order": 4, "skills": ["Agile & SAFe at scale", "Release management", "Time-to-market", "PMO & reporting", "Distributed teams"]}
 {"_id": "skill-cloud-data", "_type": "skill", "category": "Cloud & Data Platforms", "icon": "Cloud", "order": 5, "skills": ["AWS", "GCP", "Cloud migration", "DevOps & application lifecycle", "Lakehouse & analytics"]}
 {"_id": "skill-vendor", "_type": "skill", "category": "Vendor & Contract Management", "icon": "Handshake", "order": 6, "skills": ["Tenders & RFP", "SLA & penalties", "Contract governance", "BPO management", "Vendor performance"]}
-{"_id": "cert-aws-saa", "_type": "certification", "title": "AWS Certified Solutions Architect - Associate", "issuer": "Amazon Web Services", "validFrom": "2020", "order": 1}
-{"_id": "cert-aws-instructor", "_type": "certification", "title": "AWS Authorized Instructor", "issuer": "Amazon Web Services", "validFrom": "2021", "order": 2, "validTo": "2023"}
-{"_id": "cert-psm-i", "_type": "certification", "title": "Professional Scrum Master I", "issuer": "Scrum.org", "validFrom": "2024", "order": 3}
+{"_id": "cert-aws-saa", "_type": "certification", "title": "AWS Certified Solution Architect - Associate (SAA)", "issuer": "Amazon Web Services", "order": 1, "validFrom": "2020"}
+{"_id": "cert-aws-instructor", "_type": "certification", "title": "AWS Authorized Instructor", "issuer": "Amazon Web Services", "order": 2, "validFrom": "2021", "validTo": "2023"}
+{"_id": "cert-psm-i", "_type": "certification", "title": "Professional Scrum Master I (PSM I)", "issuer": "Scrum.org", "order": 3, "validFrom": "2024"}
+{"_id": "cert-agilepm-foundation", "_type": "certification", "title": "AgilePM Foundation", "issuer": "", "order": 4}
+{"_id": "cert-scrum-fundamentals", "_type": "certification", "title": "Scrum Fundamentals Certified (SFC)", "issuer": "", "order": 5}
+{"_id": "cert-cyber-security-foundation", "_type": "certification", "title": "Cyber Security Foundation (CSFPC)", "issuer": "CertiProf", "order": 6, "validFrom": "2021"}
+{"_id": "cert-negotiation-associate", "_type": "certification", "title": "Negotiation Associate (NCN-A)", "issuer": "", "order": 7}
+{"_id": "cert-digital-marketing-fundamentals", "_type": "certification", "title": "Digital Marketing Fundamentals (SCDM-F)", "issuer": "", "order": 8}
