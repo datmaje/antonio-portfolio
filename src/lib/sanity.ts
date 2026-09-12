@@ -43,6 +43,7 @@ export interface Project {
   results?: string
   image?: any
   link?: string
+  links?: { _key?: string; label: string; url: string }[]
   order: number
   publishedAt: string
 }
@@ -80,6 +81,7 @@ export const projectDetailFields = `
   stakeholders,
   techTools,
   results,
+  links[]{_key, label, url},
   publishedAt
 `
 

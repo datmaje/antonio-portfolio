@@ -154,8 +154,26 @@ export default {
     },
     {
       name: 'link',
-      title: 'Project Link',
+      title: 'Project Link (singolo, storico)',
+      description: 'Campo storico. Usare Public links: il sito mostra quello se Public links e vuoto.',
       type: 'url'
+    },
+    {
+      name: 'links',
+      title: 'Public links',
+      description: 'Da zero a N link pubblici. Il sito ne mostra tanti quanti sono, nell\'ordine in cui stanno qui: il primo e il piu rilevante.',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'projectLink',
+          fields: [
+            { name: 'label', title: 'Label', type: 'string', validation: Rule => Rule.required() },
+            { name: 'url', title: 'URL', type: 'url', validation: Rule => Rule.required() }
+          ],
+          preview: { select: { title: 'label', subtitle: 'url' } }
+        }
+      ]
     },
     {
       name: 'order',

@@ -44,6 +44,14 @@ export default function ProjectDetail() {
     ? [project.organization, project.role, project.period, project.location].filter(Boolean)
     : []
 
+  // Da zero a N link: si usa "links" se popolato, altrimenti il vecchio campo "link" singolo.
+  const publicLinks =
+    project?.links && project.links.length
+      ? project.links.filter((item) => item?.url)
+      : project?.link
+      ? [{ _key: 'legacy', label: 'Visit the product', url: project.link }]
+      : []
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-ocean-700 via-ocean-800 to-ocean-900 pt-24 pb-20 px-4">
       <div className="max-w-3xl mx-auto">
@@ -101,16 +109,21 @@ export default function ProjectDetail() {
               </div>
             )}
 
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-8 text-teal-400 hover:text-teal-300 font-semibold text-sm"
-              >
-                Visit the product
-                <ExternalLink size={16} />
-              </a>
+            {publicLinks.length > 0 && (
+              <div className="flex flex-wrap gap-x-6 gap-y-3 mt-8">
+                {publicLinks.map((item) => (
+                  <a
+                    key={item._key || item.url}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 font-semibold text-sm"
+                  >
+                    {item.label}
+                    <ExternalLink size={16} />
+                  </a>
+                ))}
+              </div>
             )}
           </motion.article>
         )}
