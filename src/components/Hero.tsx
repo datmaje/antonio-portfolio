@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { yearsOfExperience } from '../lib/experience'
 
 export default function Hero() {
   const containerVariants = {
@@ -43,7 +44,7 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.div variants={itemVariants}>
           <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            8+ years shaping the future of enterprise digital ecosystems. Strategic leader in cloud architecture, organizational transformation, and cross-functional team building at scale.
+            {yearsOfExperience()}+ years shaping the future of enterprise digital ecosystems. Strategic leader in cloud architecture, organizational transformation, and cross-functional team building at scale.
           </p>
         </motion.div>
 

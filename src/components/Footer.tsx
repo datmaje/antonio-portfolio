@@ -28,7 +28,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <p>© 2024 Antonio Carcagnì. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Antonio Carcagnì. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

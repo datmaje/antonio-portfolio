@@ -2,13 +2,32 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { PortableText } from '@portabletext/react'
 import { client, About as AboutContent } from '../lib/sanity'
+import { withYears } from '../lib/experience'
 
 const fallbackTitle = 'About Me'
+
+// Allineato al testo su Sanity. Serve solo se il CMS non risponde.
+// {{years}} viene sostituito con gli anni di esperienza alla data della visita.
 const fallbackParagraphs = [
-  "I'm a strategic technology leader with a passion for transforming organizations through digital innovation and cloud architecture. With 8+ years of experience spanning international environments at Engie, BIP Consulting, and Vodafone, I've orchestrated digital transformations managing budgets in the millions and leading cross-functional teams across multiple continents.",
-  "My expertise spans enterprise cloud architecture, organizational change management, agile transformation, and building high-performing teams. I've architected scalable solutions, mentored emerging leaders, and championed digital-first strategies that drove measurable business impact.",
-  "Beyond the boardroom, I'm deeply passionate about game development, emerging cloud technologies, and mentoring the next generation of tech leaders. I hold multiple AWS certifications and am an authorized instructor, committed to staying at the forefront of technological innovation.",
+  'Digital & IT leader with {{years}}+ years of experience driving IT transformation and digital product delivery across international environments.',
+  'My background spans strategic planning, cross-functional team leadership, budgeting on multi-million programme portfolios, and change management, underpinned by AWS Solutions Architect Associate and Professional Scrum Master I certifications. I focus on what moves the needle for the business: cost, risk, and delivery time, and filter out the noise.',
+  'Core expertise: IT transformation and digital product delivery, infrastructure and cloud architecture, Agile/SAFe delivery, team leadership and stakeholder management, vendor and contract management, change management and process reengineering.',
 ]
+
+// Sostituisce gli anni anche nel testo che arriva dal CMS, senza toccare il resto dei blocchi.
+function applyYears(content: any[]): any[] {
+  if (!Array.isArray(content)) return content
+  return content.map((block) =>
+    block && Array.isArray(block.children)
+      ? {
+          ...block,
+          children: block.children.map((child: any) =>
+            child && typeof child.text === 'string' ? { ...child, text: withYears(child.text) } : child
+          ),
+        }
+      : block
+  )
+}
 
 export default function About() {
   const [about, setAbout] = useState<AboutContent | null>(null)
@@ -47,9 +66,9 @@ export default function About() {
           ) : (
             <div className="space-y-6 text-gray-200 text-lg leading-relaxed [&_a]:text-teal-400 [&_strong]:text-white">
               {about ? (
-                <PortableText value={about.content} />
+                <PortableText value={applyYears(about.content)} />
               ) : (
-                fallbackParagraphs.map((p, i) => <p key={i}>{p}</p>)
+                fallbackParagraphs.map((p, i) => <p key={i}>{withYears(p)}</p>)
               )}
             </div>
           )}

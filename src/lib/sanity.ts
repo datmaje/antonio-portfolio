@@ -110,13 +110,3 @@ export interface Certification {
   validTo?: string
   order?: number
 }
-
-export interface Lead {
-  _id?: string
-  name: string
-  email: string
-  company?: string
-  requestType: string
-  message: string
-  receivedAt?: string
-}
