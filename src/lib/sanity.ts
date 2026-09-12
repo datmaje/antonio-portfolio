@@ -16,18 +16,68 @@ export const client = createClient({
   useCdn: true,
 })
 
-export const urlFor = (source: any) => imageUrlBuilder({projectId, dataset}).image(source)
+export const urlFor = (source: any) => imageUrlBuilder({project: projectId, dataset}).image(source)
 
 // Types
 export interface Project {
   _id: string
   title: string
+  slug?: string
   description: string
+  kind?: string
+  organization?: string
+  role?: string
+  cluster?: string
+  period?: string
+  location?: string
+  tags?: string[]
+  featured?: boolean
+  status?: string
+  context?: string
+  roleDetail?: string
+  scope?: string
+  economics?: string
+  fte?: string
+  stakeholders?: string
+  techTools?: string
+  results?: string
   image?: any
-  link: string
+  link?: string
   order: number
   publishedAt: string
 }
+
+export const projectCardFields = `
+  _id,
+  title,
+  "slug": slug.current,
+  description,
+  organization,
+  cluster,
+  period,
+  tags,
+  featured,
+  image,
+  link,
+  order
+`
+
+export const projectDetailFields = `
+  ${projectCardFields},
+  kind,
+  role,
+  location,
+  status,
+  context,
+  roleDetail,
+  scope,
+  economics,
+  fte,
+  stakeholders,
+  techTools,
+  results,
+  publishedAt
+`
 
 export interface Hobby {
   _id: string
@@ -38,7 +88,6 @@ export interface Hobby {
 
 export interface About {
   _id: string
-  title?: string
   content: any[]
 }
 
@@ -53,7 +102,17 @@ export interface Certification {
   _id: string
   title: string
   issuer: string
-  validFrom?: string
+  validFrom: string
   validTo?: string
   order?: number
+}
+
+export interface Lead {
+  _id?: string
+  name: string
+  email: string
+  company?: string
+  requestType: string
+  message: string
+  receivedAt?: string
 }
