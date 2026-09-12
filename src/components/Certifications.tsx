@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { Award } from 'lucide-react'
 import { client, Certification } from '../lib/sanity'
 
+// Allineato ai documenti "certification" su Sanity. Serve solo se il CMS non risponde.
+// Anno = anno di conseguimento.
 const fallbackCerts: Certification[] = [
-  { _id: '1', title: 'AWS Certified Solutions Architect - Associate', issuer: 'Amazon Web Services', validFrom: '2023', validTo: '2025' },
-  { _id: '2', title: 'Professional Scrum Master I', issuer: 'Scrum.org', validFrom: '2021', validTo: 'Present' },
-  { _id: '3', title: 'AWS Authorized Instructor', issuer: 'Amazon Web Services', validFrom: '2023', validTo: 'Present' },
-  { _id: '4', title: 'Cyber Security Foundation', issuer: 'EXIN', validFrom: '2022', validTo: 'Present' },
-  { _id: '5', title: 'SAFe Program Consultant', issuer: 'Scaled Agile', validFrom: '2022', validTo: 'Present' },
+  { _id: '1', title: 'AWS Certified Solutions Architect - Associate', issuer: 'Amazon Web Services', validFrom: '2020', order: 1 },
+  { _id: '2', title: 'AWS Authorized Instructor', issuer: 'Amazon Web Services', validFrom: '2021', validTo: '2023', order: 2 },
+  { _id: '3', title: 'Professional Scrum Master I', issuer: 'Scrum.org', validFrom: '2024', order: 3 },
 ]
 
 export default function Certifications() {

@@ -10,12 +10,12 @@ export default {
       validation: Rule => Rule.required(),
       options: {
         list: [
-          'Cloud Architecture',
-          'Digital Strategy',
-          'Leadership',
-          'Agile & DevOps',
-          'Development',
-          'Data & Systems'
+          'Meter-to-Cash',
+          'Digital Products & Channels',
+          'IT & Business Governance',
+          'Delivery & Ways of Working',
+          'Cloud & Data Platforms',
+          'Vendor & Contract Management'
         ]
       }
     },
@@ -30,7 +30,12 @@ export default {
       name: 'icon',
       title: 'Icon Name (lucide-react)',
       type: 'string',
-      description: 'Cloud, Zap, Users, Settings, Code2, Database, etc.'
+      description: 'Receipt, Smartphone, Gauge, Settings, Cloud, Handshake, Users, Database'
+    },
+    {
+      name: 'order',
+      title: 'Display Order',
+      type: 'number',
     },
   ],
   preview: {

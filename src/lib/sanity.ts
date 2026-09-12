@@ -100,6 +100,7 @@ export interface Skill {
   category: string
   skills: string[]
   icon?: string
+  order?: number
 }
 
 export interface Certification {

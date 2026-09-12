@@ -1,0 +1,9 @@
+{"_id": "skill-meter-to-cash", "_type": "skill", "category": "Meter-to-Cash", "icon": "Receipt", "order": 1, "skills": ["Metering & MDM", "Billing & invoicing", "Credit & collections", "Market processes", "Regulatory compliance"]}
+{"_id": "skill-digital-products", "_type": "skill", "category": "Digital Products & Channels", "icon": "Smartphone", "order": 2, "skills": ["Mobile app ownership", "Web self-service", "CRM & campaigns", "Voice of customer", "Adoption & conversion"]}
+{"_id": "skill-governance", "_type": "skill", "category": "IT & Business Governance", "icon": "Gauge", "order": 3, "skills": ["Operating model", "Lean portfolio management", "Demand & prioritisation", "Delivery KPIs", "Technical debt"]}
+{"_id": "skill-delivery", "_type": "skill", "category": "Delivery & Ways of Working", "icon": "Settings", "order": 4, "skills": ["Agile & SAFe at scale", "Release management", "Time-to-market", "PMO & reporting", "Distributed teams"]}
+{"_id": "skill-cloud-data", "_type": "skill", "category": "Cloud & Data Platforms", "icon": "Cloud", "order": 5, "skills": ["AWS", "GCP", "Cloud migration", "DevOps & application lifecycle", "Lakehouse & analytics"]}
+{"_id": "skill-vendor", "_type": "skill", "category": "Vendor & Contract Management", "icon": "Handshake", "order": 6, "skills": ["Tenders & RFP", "SLA & penalties", "Contract governance", "BPO management", "Vendor performance"]}
+{"_id": "cert-aws-saa", "_type": "certification", "title": "AWS Certified Solutions Architect - Associate", "issuer": "Amazon Web Services", "validFrom": "2020", "order": 1}
+{"_id": "cert-aws-instructor", "_type": "certification", "title": "AWS Authorized Instructor", "issuer": "Amazon Web Services", "validFrom": "2021", "order": 2, "validTo": "2023"}
+{"_id": "cert-psm-i", "_type": "certification", "title": "Professional Scrum Master I", "issuer": "Scrum.org", "validFrom": "2024", "order": 3}

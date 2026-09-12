@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Cloud, Code2, Users, Zap, Database, Settings, Sparkles } from 'lucide-react'
+import {
+  Cloud,
+  Code2,
+  Users,
+  Zap,
+  Database,
+  Settings,
+  Sparkles,
+  Receipt,
+  Smartphone,
+  Gauge,
+  Handshake,
+} from 'lucide-react'
 import { client, Skill } from '../lib/sanity'
 
 const iconMap: Record<string, typeof Cloud> = {
@@ -10,15 +22,56 @@ const iconMap: Record<string, typeof Cloud> = {
   Zap,
   Database,
   Settings,
+  Receipt,
+  Smartphone,
+  Gauge,
+  Handshake,
 }
 
+// Allineato ai documenti "skill" su Sanity. Serve solo se il CMS non risponde.
 const fallbackSkills: Skill[] = [
-  { _id: '1', category: 'Cloud Architecture', icon: 'Cloud', skills: ['AWS', 'Infrastructure as Code', 'Microservices', 'Scalability'] },
-  { _id: '2', category: 'Digital Strategy', icon: 'Zap', skills: ['Digital Transformation', 'Technology Roadmap', 'Change Management', 'Innovation'] },
-  { _id: '3', category: 'Leadership', icon: 'Users', skills: ['Team Building', 'Cross-functional Teams', 'Mentoring', 'Agile Coaching'] },
-  { _id: '4', category: 'Agile & DevOps', icon: 'Settings', skills: ['Scrum', 'SAFe', 'CI/CD', 'DevOps Practices'] },
-  { _id: '5', category: 'Development', icon: 'Code2', skills: ['Full Stack', 'React', 'TypeScript', 'API Design'] },
-  { _id: '6', category: 'Data & Systems', icon: 'Database', skills: ['PostgreSQL', 'Database Design', 'ERP Systems', 'Data Architecture'] },
+  {
+    _id: '1',
+    category: 'Meter-to-Cash',
+    icon: 'Receipt',
+    order: 1,
+    skills: ['Metering & MDM', 'Billing & invoicing', 'Credit & collections', 'Market processes', 'Regulatory compliance'],
+  },
+  {
+    _id: '2',
+    category: 'Digital Products & Channels',
+    icon: 'Smartphone',
+    order: 2,
+    skills: ['Mobile app ownership', 'Web self-service', 'CRM & campaigns', 'Voice of customer', 'Adoption & conversion'],
+  },
+  {
+    _id: '3',
+    category: 'IT & Business Governance',
+    icon: 'Gauge',
+    order: 3,
+    skills: ['Operating model', 'Lean portfolio management', 'Demand & prioritisation', 'Delivery KPIs', 'Technical debt'],
+  },
+  {
+    _id: '4',
+    category: 'Delivery & Ways of Working',
+    icon: 'Settings',
+    order: 4,
+    skills: ['Agile & SAFe at scale', 'Release management', 'Time-to-market', 'PMO & reporting', 'Distributed teams'],
+  },
+  {
+    _id: '5',
+    category: 'Cloud & Data Platforms',
+    icon: 'Cloud',
+    order: 5,
+    skills: ['AWS', 'GCP', 'Cloud migration', 'DevOps & application lifecycle', 'Lakehouse & analytics'],
+  },
+  {
+    _id: '6',
+    category: 'Vendor & Contract Management',
+    icon: 'Handshake',
+    order: 6,
+    skills: ['Tenders & RFP', 'SLA & penalties', 'Contract governance', 'BPO management', 'Vendor performance'],
+  },
 ]
 
 export default function Skills() {
@@ -31,7 +84,7 @@ export default function Skills() {
 
   const fetchSkills = async () => {
     try {
-      const query = `*[_type == "skill"]{ _id, category, skills, icon }`
+      const query = `*[_type == "skill"] | order(order asc){ _id, category, skills, icon, order }`
       const data = await client.fetch(query)
       setSkillCategories(data && data.length ? data : fallbackSkills)
     } catch (error) {
