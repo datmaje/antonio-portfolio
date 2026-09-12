@@ -47,6 +47,10 @@ export interface Project {
   publishedAt: string
 }
 
+// Only cases with status "published" are public. Anything draft or on-hold
+// stays in the CMS and never reaches the site.
+export const publishedProject = `_type == "project" && status == "published"`
+
 export const projectCardFields = `
   _id,
   title,

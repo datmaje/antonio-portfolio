@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { client, projectCardFields, Project } from '../lib/sanity'
+import { client, projectCardFields, publishedProject, Project } from '../lib/sanity'
 import ProjectCard from './ProjectCard'
 
 export default function Projects() {
@@ -14,8 +14,8 @@ export default function Projects() {
     const fetchProjects = async () => {
       try {
         const query = `{
-          "featured": *[_type == "project" && featured == true] | order(order asc) { ${projectCardFields} },
-          "total": count(*[_type == "project"])
+          "featured": *[${publishedProject} && featured == true] | order(order asc) { ${projectCardFields} },
+          "total": count(*[${publishedProject}])
         }`
         const data = await client.fetch(query)
         setProjects(data?.featured || [])

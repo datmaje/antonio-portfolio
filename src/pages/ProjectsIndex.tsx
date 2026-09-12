@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
-import { client, projectCardFields, Project } from '../lib/sanity'
+import { client, projectCardFields, publishedProject, Project } from '../lib/sanity'
 import ProjectCard from '../components/ProjectCard'
 
 const CLUSTER_ORDER = [
@@ -20,7 +20,7 @@ export default function ProjectsIndex() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const query = `*[_type == "project"] | order(order asc) { ${projectCardFields} }`
+        const query = `*[${publishedProject}] | order(order asc) { ${projectCardFields} }`
         setProjects((await client.fetch(query)) || [])
       } catch (error) {
         console.error('Error fetching projects:', error)

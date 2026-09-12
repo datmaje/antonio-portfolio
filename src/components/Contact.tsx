@@ -17,7 +17,7 @@ export default function Contact() {
           </p>
 
           <a
-            href="https://www.linkedin.com/in/antoniocarcagnì/"
+            href="https://www.linkedin.com/in/antoniocarcagn%C3%AC/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 bg-teal-500 hover:bg-teal-400 text-ocean-900 font-bold rounded-lg transition-all hover:scale-105"

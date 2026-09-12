@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
-import { client, projectDetailFields, urlFor, Project } from '../lib/sanity'
+import { client, projectDetailFields, publishedProject, urlFor, Project } from '../lib/sanity'
 
 function Section({ title, body }: { title: string; body?: string }) {
   if (!body) return null
@@ -27,7 +27,7 @@ export default function ProjectDetail() {
     const fetchProject = async () => {
       setLoading(true)
       try {
-        const query = `*[_type == "project" && slug.current == $slug][0] { ${projectDetailFields} }`
+        const query = `*[${publishedProject} && slug.current == $slug][0] { ${projectDetailFields} }`
         setProject(await client.fetch(query, { slug }))
       } catch (error) {
         console.error('Error fetching project:', error)
