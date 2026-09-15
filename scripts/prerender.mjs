@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(ROOT, 'dist')
-const SITE = 'https://antoniocarcagni.com'
+const SITE = 'https://www.antoniocarcagni.com'
 const OG_IMAGE = `${SITE}/og-image.png`
 const LINKEDIN = 'https://www.linkedin.com/in/antoniocarcagn%C3%AC/'
 const CAREER_START = Date.UTC(2015, 0, 1)
