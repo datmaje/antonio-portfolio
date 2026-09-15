@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -25,30 +25,6 @@ function Home() {
   )
 }
 
-// Unknown routes must not render the homepage: that turns every wrong URL into
-// a 200 duplicate of "/" for search engines. The static 404.html produced by
-// scripts/prerender.mjs carries the real 404 status; this is the client-side
-// twin of it.
-function NotFound() {
-  return (
-    <section className="mx-auto max-w-2xl px-6 py-32 text-slate-200">
-      <p className="text-sm uppercase tracking-widest text-cyan-400">404</p>
-      <h1 className="mt-3 text-3xl font-bold">Page not found</h1>
-      <p className="mt-4 text-slate-400">
-        This address does not exist on this site.
-      </p>
-      <div className="mt-8 flex gap-6">
-        <Link to="/" className="text-cyan-400 hover:underline">
-          Home
-        </Link>
-        <Link to="/projects" className="text-cyan-400 hover:underline">
-          All projects
-        </Link>
-      </div>
-    </section>
-  )
-}
-
 export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-ocean-700 via-ocean-800 to-ocean-900">
@@ -57,7 +33,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<ProjectsIndex />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
     </div>

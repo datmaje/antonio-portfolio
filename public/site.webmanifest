@@ -1,0 +1,14 @@
+{
+  "name": "Antonio Carcagnì",
+  "short_name": "AC",
+  "description": "Antonio Carcagnì, Digital & IT Leader, Milan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1929",
+  "theme_color": "#0A1929",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "_comment": "Hand-written meta descriptions, one per route. Keep each under 155 characters: Google truncates beyond that. A route missing here falls back to an automatic clip of the Sanity description, which cuts mid-sentence. Key = route path.",
+
+  "/": "Antonio Carcagnì, Digital & IT leader in Milan. Meter-to-Cash, digital products, cloud operations and Agile delivery for a national energy retailer.",
+
+  "/projects": "Nineteen programme and project records across Meter-to-Cash, digital channels, technology governance, cloud, and vendor and contract management.",
+
+  "/projects/engie-b2c-mobile-app": "Direct product ownership of the highest-frequency digital touchpoint of a national energy retailer, rebuilt for speed, stability and adoption.",
+
+  "/projects/online-customer-area": "The web self-service half of a national energy retailer's digital model, run as direct product manager alongside the mobile app.",
+
+  "/projects/meter-to-cash-programme": "Managerial ownership of the IT and Digital portfolio from meter reading to cash collection, across a customer base of one million supply points.",
+
+  "/projects/technology-leadership-and-governance": "Technology governance held in parallel with every other role: operating model, demand and prioritisation, delivery KPIs and technical debt.",
+
+  "/projects/agile-and-safe-delivery": "Scaled agile adoption and end-to-end release process optimisation across the delivery teams of a national energy retailer.",
+
+  "/projects/vodafone-data-centre-operations": "Three years inside a global telecom operator's data centre estate: keeping 24 European sites healthy and retiring what no longer earned its space.",
+
+  "/projects/vodafone-technology-innovation-center": "Technology scouting turned into a governed pipeline, from radar entry to a productised service a global telecom group could actually adopt.",
+
+  "/projects/fca-wiadvisor-field-rollout": "Digital service reception rolled out across FCA France's national dealer network, one site at a time.",
+
+  "/projects/the-way-of-life-steam-game": "Co-founded a four-person studio and shipped a narrative game to a million downloads. Everything outside the code was mine to solve.",
+
+  "/projects/metering-and-master-data": "A meter data platform and a master data management layer as the foundation of the billing chain for a national energy retailer.",
+
+  "/projects/billing-and-invoicing": "Bill redesign, hourly billing and the replatforming of the customer communication engine inside a Meter-to-Cash portfolio.",
+
+  "/projects/credit-and-collections": "Credit platform renewal, payment method shift and automation of the collections cycle across a one million customer base.",
+
+  "/projects/regulatory-compliance": "Turning a continuous stream of energy authority resolutions into delivered IT changes, on fixed legal deadlines.",
+
+  "/projects/customer-care-and-feedback": "Closing the loop between what customers say and what the organisation changes, and automating the regulated part of it.",
+
+  "/projects/data-platform-and-analytics": "Customer intelligence built on a governed lakehouse rather than channel-local reporting, across a national energy retailer's digital estate.",
+
+  "/projects/cloud-operations-and-devops": "Cloud migration, DevOps adoption and disciplined application lifecycle management across a national energy retailer's digital estate.",
+
+  "/projects/erp-modernization-as400-to-dynamics": "Switching off AS/400 at two Italian manufacturers, and translating what the business actually did into requirements an integrator could build.",
+
+  "/projects/aws-cloud-training": "Teaching AWS cloud fundamentals to roughly a hundred people as an authorised instructor, in parallel with a full-time corporate role.",
+
+  "/projects/werank": "A fantasy league for competitive League of Legends built on Riot's public match data. A four-person side venture that never got to run."
+}
